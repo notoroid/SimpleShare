@@ -125,7 +125,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeCameraRollOnly requireImageType:SimpleShareRequireImageTypeOriginal simpleShareViewController:self delegate:_delegate];
     }
 }
@@ -135,7 +134,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeInstagram requireImageType:SimpleShareRequireImageType1280x1280 simpleShareViewController:self delegate:_delegate];
     }
 }
@@ -145,7 +143,7 @@
     if( [self isEnterWorking] != YES ){
         [self updateUserInterfaceWithEnable:NO];
         
-        [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeTwitter viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
+        [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeTwitter option:nil viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
            
             if( authorizationStatus == IDPAuthorizationViewControllerAuthorizationStatusAuthorized ){
                 [self setEnterWorking:YES];
@@ -223,11 +221,13 @@
 
 - (IBAction)firedFacebook:(id)sender
 {
-    [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeFacebook viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
+    NSString* facebookAppID = [_delegate simpleShareViewControllerFacebookAppID:self];
+    NSDictionary *option = facebookAppID.length > 0 ? @{kIDPAuthorizationViewControllerOptionFacebookAppID:facebookAppID} : nil;
+    
+    [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeFacebook option:option viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
     
         if( authorizationStatus == IDPAuthorizationViewControllerAuthorizationStatusAuthorized ){
             [self performSegueWithIdentifier:@"facebookPostSegue" sender:nil];
-            
         }else{
             [IDPAuthorizationViewController showDenyAlertWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeFacebook];
         }
@@ -239,7 +239,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeLine requireImageType:SimpleShareRequireImageType1280x1280 simpleShareViewController:self delegate:_delegate];
     }
 }
@@ -291,7 +290,8 @@
 - (void) facebookPostViewControllerDidDone:(IDPFacebookPostViewController *)facebookPostView error:(NSError *)error
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        [_delegate simpleShareViewControllerDidDone:self];
+        // カメラロールに保存
+        [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeCameraRollOnly requireImageType:SimpleShareRequireImageTypeOriginal simpleShareViewController:self delegate:_delegate];
     }];
 }
 

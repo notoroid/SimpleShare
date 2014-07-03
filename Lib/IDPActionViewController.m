@@ -104,7 +104,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeDocumentInteraction requireImageType:SimpleShareRequireImageTypeOriginal simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }else{
 
@@ -117,7 +116,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeMessage requireImageType:SimpleShareRequireImageTypeOriginal simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }else{
 
@@ -129,7 +127,7 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
+        
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeMessage requireImageType:SimpleShareRequireImageTypeOriginal simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }else{
 
@@ -140,7 +138,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeCopyPasteboard requireImageType:SimpleShareRequireImageTypeOriginal simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }else{
         

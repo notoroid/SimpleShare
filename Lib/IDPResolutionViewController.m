@@ -63,7 +63,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeInstagram requireImageType:SimpleShareRequireImageType640x640 simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }
 }
@@ -73,7 +72,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeInstagram requireImageType:SimpleShareRequireImageType1280x1280 simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }
 }
@@ -83,7 +81,6 @@
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
         
-        [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeInstagram requireImageType:SimpleShareRequireImageType1920x1920 simpleShareViewController:_simpleShareViewController delegate:_delegate];
     }
 }
