@@ -143,6 +143,7 @@
 - (IBAction)firedTwitter:(id)sender
 {
     if( [self isEnterWorking] != YES ){
+        [self updateUserInterfaceWithEnable:NO];
         
         [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeTwitter viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
            
@@ -164,9 +165,8 @@
                         UIImage *image = [_delegate simpleShareViewController:self imageType:SimpleShareRequireImageTypeOriginal];
                         dispatch_async(dispatch_get_main_queue(), ^{
                             [self setEnterWorking:NO];
-                            self.navigationItem.leftBarButtonItem.enabled = YES;
-                            self.navigationItem.rightBarButtonItem.enabled = YES;
                             [self resetWaiting];
+                            [self updateUserInterfaceWithEnable:YES];
                             
                             // ビューコントローラの初期化
                             SLComposeViewController *viewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -212,9 +212,9 @@
                         });
                     }
                 });
-            
-            
             }else{
+                [self updateUserInterfaceWithEnable:YES];
+                
                 [IDPAuthorizationViewController showDenyAlertWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeTwitter];
             }
         }];

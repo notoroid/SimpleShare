@@ -13,6 +13,7 @@
 @import MessageUI;
 @import MobileCoreServices;
 #import "Line.h"
+#import "IDPAuthorizationViewController.h"
 
 #define DOCUMENT_INTERACTION_IMAGE_FILE_NAME @"temporary.jpg"
 #define DOCUMENT_INTERACTION_INSTAGRAM_FILE_NAME @"temporary.igo"
@@ -118,17 +119,32 @@
         _waitingView = nil;
         self.navigationItem.leftBarButtonItem.enabled = YES;
         self.navigationItem.rightBarButtonItem.enabled = YES;
+        self.navigationItem.hidesBackButton = NO;
+        
     }else{
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(firedShowWaiting:) object:nil];
         //
     }
 }
 
-- (void) exportImageWithExportType:(IDPSimpleShareViewControllerExportType) exportType requireImageType:(SimpleShareRequireImageType)requireImageType simpleShareViewController:(IDPSimpleShareViewController *)simpleShareViewController delegate:(id<IDPSimpleShareViewControllerDelegate>)delegate
+- (void) updateUserInterfaceWithEnable:(BOOL)enable
 {
+    if( enable ){
+        self.navigationItem.leftBarButtonItem.enabled = YES;
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+        self.navigationItem.hidesBackButton = NO;
+    }else{
     self.navigationItem.leftBarButtonItem.enabled = NO;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.navigationItem.hidesBackButton = YES;
+    }
+    
+}
+
+
+- (void) exportImageWithExportType:(IDPSimpleShareViewControllerExportType) exportType requireImageType:(SimpleShareRequireImageType)requireImageType simpleShareViewController:(IDPSimpleShareViewController *)simpleShareViewController delegate:(id<IDPSimpleShareViewControllerDelegate>)delegate
+{
+    [self updateUserInterfaceWithEnable:NO];
 
     UIView *backgroundView = [[UIView alloc] initWithFrame:(CGRect){CGPointZero,self.view.frame.size}];
     backgroundView.opaque = NO;
@@ -154,6 +170,7 @@
             // アルバム名を取得
             // 保存
             [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:^(BOOL finished) {
+                [self updateUserInterfaceWithEnable:YES];
                 [self resetWaiting];
                 
                 switch (exportType) {

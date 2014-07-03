@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, SimpleShareRequireImageType)
 
 - (void) setWaiting;
 - (void) resetWaiting;
+- (void) updateUserInterfaceWithEnable:(BOOL)enable;
 
 #pragma mark overridemethod
 - (NSArray *) initializedButtonWithIconTypes;
