@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		874B789E1960E2650047D9C7 /* IDPFacebookPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */; };
+		874FF63F1965BF5F004BD924 /* IDPAbstRichModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FF63A1965BF5F004BD924 /* IDPAbstRichModalViewController.m */; };
+		874FF6401965BF5F004BD924 /* IDPAuthorizationFigureRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FF63C1965BF5F004BD924 /* IDPAuthorizationFigureRenderer.m */; };
+		874FF6411965BF5F004BD924 /* IDPAuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874FF63E1965BF5F004BD924 /* IDPAuthorizationViewController.m */; };
 		87A6EB2F1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EB2E1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m */; };
 		87DFD5FC195C239500B349A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FB195C239500B349A4 /* Foundation.framework */; };
 		87DFD5FE195C239500B349A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FD195C239500B349A4 /* CoreGraphics.framework */; };
@@ -54,6 +57,12 @@
 		44C5FA380AC1428AB6F021C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		874B789C1960E2650047D9C7 /* IDPFacebookPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPFacebookPostViewController.h; path = Lib/IDPFacebookPostViewController.h; sourceTree = "<group>"; };
 		874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPFacebookPostViewController.m; path = Lib/IDPFacebookPostViewController.m; sourceTree = "<group>"; };
+		874FF6391965BF5F004BD924 /* IDPAbstRichModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPAbstRichModalViewController.h; sourceTree = "<group>"; };
+		874FF63A1965BF5F004BD924 /* IDPAbstRichModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPAbstRichModalViewController.m; sourceTree = "<group>"; };
+		874FF63B1965BF5F004BD924 /* IDPAuthorizationFigureRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPAuthorizationFigureRenderer.h; sourceTree = "<group>"; };
+		874FF63C1965BF5F004BD924 /* IDPAuthorizationFigureRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPAuthorizationFigureRenderer.m; sourceTree = "<group>"; };
+		874FF63D1965BF5F004BD924 /* IDPAuthorizationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDPAuthorizationViewController.h; sourceTree = "<group>"; };
+		874FF63E1965BF5F004BD924 /* IDPAuthorizationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDPAuthorizationViewController.m; sourceTree = "<group>"; };
 		87A6EB2D1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareSlideAndFadeTransition.h; path = Lib/IDPSimpleShareSlideAndFadeTransition.h; sourceTree = "<group>"; };
 		87A6EB2E1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareSlideAndFadeTransition.m; path = Lib/IDPSimpleShareSlideAndFadeTransition.m; sourceTree = "<group>"; };
 		87DFD5F8195C239500B349A4 /* SimpleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,9 +135,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		874FF6361965BF09004BD924 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				874FF6371965BF48004BD924 /* SimpleAuthorization */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		874FF6371965BF48004BD924 /* SimpleAuthorization */ = {
+			isa = PBXGroup;
+			children = (
+				874FF6381965BF5F004BD924 /* Lib */,
+			);
+			name = SimpleAuthorization;
+			sourceTree = "<group>";
+		};
+		874FF6381965BF5F004BD924 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				874FF6391965BF5F004BD924 /* IDPAbstRichModalViewController.h */,
+				874FF63A1965BF5F004BD924 /* IDPAbstRichModalViewController.m */,
+				874FF63B1965BF5F004BD924 /* IDPAuthorizationFigureRenderer.h */,
+				874FF63C1965BF5F004BD924 /* IDPAuthorizationFigureRenderer.m */,
+				874FF63D1965BF5F004BD924 /* IDPAuthorizationViewController.h */,
+				874FF63E1965BF5F004BD924 /* IDPAuthorizationViewController.m */,
+			);
+			name = Lib;
+			path = Libs/SimpleAuthorization/Lib;
+			sourceTree = "<group>";
+		};
 		87DFD5EF195C239500B349A4 = {
 			isa = PBXGroup;
 			children = (
+				874FF6361965BF09004BD924 /* Libs */,
 				87DFD648195C244400B349A4 /* Lib */,
 				87DFD601195C239500B349A4 /* SimpleShare */,
 				87DFD620195C239600B349A4 /* SimpleShareTests */,
@@ -374,8 +414,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				87A6EB2F1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m in Sources */,
+				874FF6411965BF5F004BD924 /* IDPAuthorizationViewController.m in Sources */,
 				87DFD640195C244100B349A4 /* IDPAbstShareViewController.m in Sources */,
 				87DFD641195C244100B349A4 /* IDPActionViewController.m in Sources */,
+				874FF63F1965BF5F004BD924 /* IDPAbstRichModalViewController.m in Sources */,
+				874FF6401965BF5F004BD924 /* IDPAuthorizationFigureRenderer.m in Sources */,
 				87DFD642195C244100B349A4 /* IDPResolutionViewController.m in Sources */,
 				87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */,
 				87DFD64B195C246700B349A4 /* TransitionManager.m in Sources */,
