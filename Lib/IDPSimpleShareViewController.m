@@ -210,11 +210,27 @@
     }
 }
 
+- (IBAction)firedFacebook:(id)sender
+{
+    [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeFacebook viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
+    
+        if( authorizationStatus == IDPAuthorizationViewControllerAuthorizationStatusAuthorized ){
+            [self performSegueWithIdentifier:@"facebookPostSegue" sender:nil];
+    
+        }else{
+            [IDPAuthorizationViewController showDenyAlertWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeFacebook];
+        }
+    }];
+}
+
 - (IBAction)firedLINE:(id)sender
 {
+    if( [self isEnterWorking] != YES ){
+        [self setEnterWorking:YES];
     
-    
-    
+        [self setWaiting];
+        [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeLine requireImageType:SimpleShareRequireImageType1280x1280 simpleShareViewController:self delegate:_delegate];
+    }
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
