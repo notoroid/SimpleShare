@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		874B789E1960E2650047D9C7 /* IDPFacebookPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */; };
+		87A6EB2F1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EB2E1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m */; };
+		87DFD5FC195C239500B349A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FB195C239500B349A4 /* Foundation.framework */; };
+		87DFD5FE195C239500B349A4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FD195C239500B349A4 /* CoreGraphics.framework */; };
+		87DFD600195C239500B349A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FF195C239500B349A4 /* UIKit.framework */; };
+		87DFD606195C239500B349A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD604195C239500B349A4 /* InfoPlist.strings */; };
+		87DFD608195C239500B349A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD607195C239500B349A4 /* main.m */; };
+		87DFD60C195C239500B349A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD60B195C239500B349A4 /* AppDelegate.m */; };
+		87DFD60F195C239500B349A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD60D195C239500B349A4 /* Main.storyboard */; };
+		87DFD612195C239500B349A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD611195C239500B349A4 /* ViewController.m */; };
+		87DFD614195C239500B349A4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD613195C239500B349A4 /* Images.xcassets */; };
+		87DFD61B195C239600B349A4 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD61A195C239600B349A4 /* XCTest.framework */; };
+		87DFD61C195C239600B349A4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FB195C239500B349A4 /* Foundation.framework */; };
+		87DFD61D195C239600B349A4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DFD5FF195C239500B349A4 /* UIKit.framework */; };
+		87DFD625195C239600B349A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD623195C239600B349A4 /* InfoPlist.strings */; };
+		87DFD627195C239600B349A4 /* SimpleShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD626195C239600B349A4 /* SimpleShareTests.m */; };
+		87DFD640195C244100B349A4 /* IDPAbstShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD631195C244100B349A4 /* IDPAbstShareViewController.m */; };
+		87DFD641195C244100B349A4 /* IDPActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD633195C244100B349A4 /* IDPActionViewController.m */; };
+		87DFD642195C244100B349A4 /* IDPResolutionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD635195C244100B349A4 /* IDPResolutionViewController.m */; };
+		87DFD643195C244100B349A4 /* IDPShareBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD637195C244100B349A4 /* IDPShareBackgroundView.m */; };
+		87DFD644195C244100B349A4 /* IDPSimpleShareFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD639195C244100B349A4 /* IDPSimpleShareFadeTransition.m */; };
+		87DFD645195C244100B349A4 /* IDPSimpleShareFigureRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63B195C244100B349A4 /* IDPSimpleShareFigureRenderer.m */; };
+		87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */; };
+		87DFD647195C244100B349A4 /* IDPSimpleShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */; };
+		87DFD64B195C246700B349A4 /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD64A195C246700B349A4 /* TransitionManager.m */; };
+		87DFD64E195C25B600B349A4 /* IDPSimpleShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */; };
+		87DFD64F195C25B600B349A4 /* IDPWaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */; };
+		87DFD653195C267300B349A4 /* picture640x640.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD650195C267300B349A4 /* picture640x640.jpg */; };
+		87DFD654195C267300B349A4 /* picture1280x1280.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD651195C267300B349A4 /* picture1280x1280.jpg */; };
+		87DFD655195C267300B349A4 /* picture1920x1920.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD652195C267300B349A4 /* picture1920x1920.jpg */; };
+		B8E6AEBE07F749518D2C827E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44C5FA380AC1428AB6F021C2 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		87DFD61E195C239600B349A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87DFD5F0195C239500B349A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87DFD5F7195C239500B349A4;
+			remoteInfo = SimpleShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		44C5FA380AC1428AB6F021C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		874B789C1960E2650047D9C7 /* IDPFacebookPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPFacebookPostViewController.h; path = Lib/IDPFacebookPostViewController.h; sourceTree = "<group>"; };
+		874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPFacebookPostViewController.m; path = Lib/IDPFacebookPostViewController.m; sourceTree = "<group>"; };
+		87A6EB2D1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareSlideAndFadeTransition.h; path = Lib/IDPSimpleShareSlideAndFadeTransition.h; sourceTree = "<group>"; };
+		87A6EB2E1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareSlideAndFadeTransition.m; path = Lib/IDPSimpleShareSlideAndFadeTransition.m; sourceTree = "<group>"; };
+		87DFD5F8195C239500B349A4 /* SimpleShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87DFD5FB195C239500B349A4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		87DFD5FD195C239500B349A4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		87DFD5FF195C239500B349A4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		87DFD603195C239500B349A4 /* SimpleShare-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleShare-Info.plist"; sourceTree = "<group>"; };
+		87DFD605195C239500B349A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		87DFD607195C239500B349A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		87DFD609195C239500B349A4 /* SimpleShare-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SimpleShare-Prefix.pch"; sourceTree = "<group>"; };
+		87DFD60A195C239500B349A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		87DFD60B195C239500B349A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		87DFD60E195C239500B349A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		87DFD610195C239500B349A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		87DFD611195C239500B349A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		87DFD613195C239500B349A4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		87DFD619195C239600B349A4 /* SimpleShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		87DFD61A195C239600B349A4 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		87DFD622195C239600B349A4 /* SimpleShareTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SimpleShareTests-Info.plist"; sourceTree = "<group>"; };
+		87DFD624195C239600B349A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		87DFD626195C239600B349A4 /* SimpleShareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SimpleShareTests.m; sourceTree = "<group>"; };
+		87DFD630195C244100B349A4 /* IDPAbstShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPAbstShareViewController.h; path = Lib/IDPAbstShareViewController.h; sourceTree = "<group>"; };
+		87DFD631195C244100B349A4 /* IDPAbstShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPAbstShareViewController.m; path = Lib/IDPAbstShareViewController.m; sourceTree = "<group>"; };
+		87DFD632195C244100B349A4 /* IDPActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPActionViewController.h; path = Lib/IDPActionViewController.h; sourceTree = "<group>"; };
+		87DFD633195C244100B349A4 /* IDPActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPActionViewController.m; path = Lib/IDPActionViewController.m; sourceTree = "<group>"; };
+		87DFD634195C244100B349A4 /* IDPResolutionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPResolutionViewController.h; path = Lib/IDPResolutionViewController.h; sourceTree = "<group>"; };
+		87DFD635195C244100B349A4 /* IDPResolutionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPResolutionViewController.m; path = Lib/IDPResolutionViewController.m; sourceTree = "<group>"; };
+		87DFD636195C244100B349A4 /* IDPShareBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPShareBackgroundView.h; path = Lib/IDPShareBackgroundView.h; sourceTree = "<group>"; };
+		87DFD637195C244100B349A4 /* IDPShareBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPShareBackgroundView.m; path = Lib/IDPShareBackgroundView.m; sourceTree = "<group>"; };
+		87DFD638195C244100B349A4 /* IDPSimpleShareFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareFadeTransition.h; path = Lib/IDPSimpleShareFadeTransition.h; sourceTree = "<group>"; };
+		87DFD639195C244100B349A4 /* IDPSimpleShareFadeTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareFadeTransition.m; path = Lib/IDPSimpleShareFadeTransition.m; sourceTree = "<group>"; };
+		87DFD63A195C244100B349A4 /* IDPSimpleShareFigureRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareFigureRenderer.h; path = Lib/IDPSimpleShareFigureRenderer.h; sourceTree = "<group>"; };
+		87DFD63B195C244100B349A4 /* IDPSimpleShareFigureRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareFigureRenderer.m; path = Lib/IDPSimpleShareFigureRenderer.m; sourceTree = "<group>"; };
+		87DFD63C195C244100B349A4 /* IDPSimpleShareManagaer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareManagaer.h; path = Lib/IDPSimpleShareManagaer.h; sourceTree = "<group>"; };
+		87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareManagaer.m; path = Lib/IDPSimpleShareManagaer.m; sourceTree = "<group>"; };
+		87DFD63E195C244100B349A4 /* IDPSimpleShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareViewController.h; path = Lib/IDPSimpleShareViewController.h; sourceTree = "<group>"; };
+		87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareViewController.m; path = Lib/IDPSimpleShareViewController.m; sourceTree = "<group>"; };
+		87DFD649195C246700B349A4 /* TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionManager.h; path = SimpleShare/TransitionManager.h; sourceTree = "<group>"; };
+		87DFD64A195C246700B349A4 /* TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionManager.m; path = SimpleShare/TransitionManager.m; sourceTree = "<group>"; };
+		87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IDPSimpleShare.storyboard; path = Lib/IDPSimpleShare.storyboard; sourceTree = "<group>"; };
+		87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDPWaitingView.xib; path = Lib/IDPWaitingView.xib; sourceTree = "<group>"; };
+		87DFD650195C267300B349A4 /* picture640x640.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture640x640.jpg; sourceTree = "<group>"; };
+		87DFD651195C267300B349A4 /* picture1280x1280.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture1280x1280.jpg; sourceTree = "<group>"; };
+		87DFD652195C267300B349A4 /* picture1920x1920.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture1920x1920.jpg; sourceTree = "<group>"; };
+		D6B255DC36534BDE92FEC41F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		87DFD5F5195C239500B349A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87DFD5FE195C239500B349A4 /* CoreGraphics.framework in Frameworks */,
+				87DFD600195C239500B349A4 /* UIKit.framework in Frameworks */,
+				87DFD5FC195C239500B349A4 /* Foundation.framework in Frameworks */,
+				B8E6AEBE07F749518D2C827E /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87DFD616195C239600B349A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87DFD61B195C239600B349A4 /* XCTest.framework in Frameworks */,
+				87DFD61D195C239600B349A4 /* UIKit.framework in Frameworks */,
+				87DFD61C195C239600B349A4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		87DFD5EF195C239500B349A4 = {
+			isa = PBXGroup;
+			children = (
+				87DFD648195C244400B349A4 /* Lib */,
+				87DFD601195C239500B349A4 /* SimpleShare */,
+				87DFD620195C239600B349A4 /* SimpleShareTests */,
+				87DFD5FA195C239500B349A4 /* Frameworks */,
+				87DFD5F9195C239500B349A4 /* Products */,
+				D6B255DC36534BDE92FEC41F /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		87DFD5F9195C239500B349A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD5F8195C239500B349A4 /* SimpleShare.app */,
+				87DFD619195C239600B349A4 /* SimpleShareTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87DFD5FA195C239500B349A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD5FB195C239500B349A4 /* Foundation.framework */,
+				87DFD5FD195C239500B349A4 /* CoreGraphics.framework */,
+				87DFD5FF195C239500B349A4 /* UIKit.framework */,
+				87DFD61A195C239600B349A4 /* XCTest.framework */,
+				44C5FA380AC1428AB6F021C2 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87DFD601195C239500B349A4 /* SimpleShare */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD650195C267300B349A4 /* picture640x640.jpg */,
+				87DFD651195C267300B349A4 /* picture1280x1280.jpg */,
+				87DFD652195C267300B349A4 /* picture1920x1920.jpg */,
+				87DFD60A195C239500B349A4 /* AppDelegate.h */,
+				87DFD60B195C239500B349A4 /* AppDelegate.m */,
+				87DFD60D195C239500B349A4 /* Main.storyboard */,
+				87DFD610195C239500B349A4 /* ViewController.h */,
+				87DFD611195C239500B349A4 /* ViewController.m */,
+				87DFD613195C239500B349A4 /* Images.xcassets */,
+				87DFD602195C239500B349A4 /* Supporting Files */,
+			);
+			path = SimpleShare;
+			sourceTree = "<group>";
+		};
+		87DFD602195C239500B349A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD603195C239500B349A4 /* SimpleShare-Info.plist */,
+				87DFD604195C239500B349A4 /* InfoPlist.strings */,
+				87DFD607195C239500B349A4 /* main.m */,
+				87DFD609195C239500B349A4 /* SimpleShare-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87DFD620195C239600B349A4 /* SimpleShareTests */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD626195C239600B349A4 /* SimpleShareTests.m */,
+				87DFD621195C239600B349A4 /* Supporting Files */,
+			);
+			path = SimpleShareTests;
+			sourceTree = "<group>";
+		};
+		87DFD621195C239600B349A4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD622195C239600B349A4 /* SimpleShareTests-Info.plist */,
+				87DFD623195C239600B349A4 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87DFD648195C244400B349A4 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */,
+				87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */,
+				87DFD649195C246700B349A4 /* TransitionManager.h */,
+				87DFD64A195C246700B349A4 /* TransitionManager.m */,
+				87DFD630195C244100B349A4 /* IDPAbstShareViewController.h */,
+				87DFD631195C244100B349A4 /* IDPAbstShareViewController.m */,
+				87DFD632195C244100B349A4 /* IDPActionViewController.h */,
+				87DFD633195C244100B349A4 /* IDPActionViewController.m */,
+				87DFD634195C244100B349A4 /* IDPResolutionViewController.h */,
+				87DFD635195C244100B349A4 /* IDPResolutionViewController.m */,
+				87DFD636195C244100B349A4 /* IDPShareBackgroundView.h */,
+				87DFD637195C244100B349A4 /* IDPShareBackgroundView.m */,
+				87DFD638195C244100B349A4 /* IDPSimpleShareFadeTransition.h */,
+				87DFD639195C244100B349A4 /* IDPSimpleShareFadeTransition.m */,
+				87A6EB2D1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.h */,
+				87A6EB2E1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m */,
+				87DFD63A195C244100B349A4 /* IDPSimpleShareFigureRenderer.h */,
+				87DFD63B195C244100B349A4 /* IDPSimpleShareFigureRenderer.m */,
+				87DFD63C195C244100B349A4 /* IDPSimpleShareManagaer.h */,
+				87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */,
+				87DFD63E195C244100B349A4 /* IDPSimpleShareViewController.h */,
+				87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */,
+				874B789C1960E2650047D9C7 /* IDPFacebookPostViewController.h */,
+				874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		87DFD5F7195C239500B349A4 /* SimpleShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87DFD62A195C239600B349A4 /* Build configuration list for PBXNativeTarget "SimpleShare" */;
+			buildPhases = (
+				B9B042C928DF47A2A4C867D1 /* Check Pods Manifest.lock */,
+				87DFD5F4195C239500B349A4 /* Sources */,
+				87DFD5F5195C239500B349A4 /* Frameworks */,
+				87DFD5F6195C239500B349A4 /* Resources */,
+				74AD132401F94EEF8E633DA8 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimpleShare;
+			productName = SimpleShare;
+			productReference = 87DFD5F8195C239500B349A4 /* SimpleShare.app */;
+			productType = "com.apple.product-type.application";
+		};
+		87DFD618195C239600B349A4 /* SimpleShareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87DFD62D195C239600B349A4 /* Build configuration list for PBXNativeTarget "SimpleShareTests" */;
+			buildPhases = (
+				87DFD615195C239600B349A4 /* Sources */,
+				87DFD616195C239600B349A4 /* Frameworks */,
+				87DFD617195C239600B349A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87DFD61F195C239600B349A4 /* PBXTargetDependency */,
+			);
+			name = SimpleShareTests;
+			productName = SimpleShareTests;
+			productReference = 87DFD619195C239600B349A4 /* SimpleShareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		87DFD5F0195C239500B349A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = com.irimasu;
+				TargetAttributes = {
+					87DFD618195C239600B349A4 = {
+						TestTargetID = 87DFD5F7195C239500B349A4;
+					};
+				};
+			};
+			buildConfigurationList = 87DFD5F3195C239500B349A4 /* Build configuration list for PBXProject "SimpleShare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 87DFD5EF195C239500B349A4;
+			productRefGroup = 87DFD5F9195C239500B349A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				87DFD5F7195C239500B349A4 /* SimpleShare */,
+				87DFD618195C239600B349A4 /* SimpleShareTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		87DFD5F6195C239500B349A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87DFD64F195C25B600B349A4 /* IDPWaitingView.xib in Resources */,
+				87DFD614195C239500B349A4 /* Images.xcassets in Resources */,
+				87DFD606195C239500B349A4 /* InfoPlist.strings in Resources */,
+				87DFD653195C267300B349A4 /* picture640x640.jpg in Resources */,
+				87DFD64E195C25B600B349A4 /* IDPSimpleShare.storyboard in Resources */,
+				87DFD654195C267300B349A4 /* picture1280x1280.jpg in Resources */,
+				87DFD60F195C239500B349A4 /* Main.storyboard in Resources */,
+				87DFD655195C267300B349A4 /* picture1920x1920.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87DFD617195C239600B349A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87DFD625195C239600B349A4 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		74AD132401F94EEF8E633DA8 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9B042C928DF47A2A4C867D1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		87DFD5F4195C239500B349A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87A6EB2F1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m in Sources */,
+				87DFD640195C244100B349A4 /* IDPAbstShareViewController.m in Sources */,
+				87DFD641195C244100B349A4 /* IDPActionViewController.m in Sources */,
+				87DFD642195C244100B349A4 /* IDPResolutionViewController.m in Sources */,
+				87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */,
+				87DFD64B195C246700B349A4 /* TransitionManager.m in Sources */,
+				87DFD612195C239500B349A4 /* ViewController.m in Sources */,
+				87DFD60C195C239500B349A4 /* AppDelegate.m in Sources */,
+				87DFD645195C244100B349A4 /* IDPSimpleShareFigureRenderer.m in Sources */,
+				87DFD647195C244100B349A4 /* IDPSimpleShareViewController.m in Sources */,
+				87DFD608195C239500B349A4 /* main.m in Sources */,
+				874B789E1960E2650047D9C7 /* IDPFacebookPostViewController.m in Sources */,
+				87DFD644195C244100B349A4 /* IDPSimpleShareFadeTransition.m in Sources */,
+				87DFD643195C244100B349A4 /* IDPShareBackgroundView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		87DFD615195C239600B349A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87DFD627195C239600B349A4 /* SimpleShareTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		87DFD61F195C239600B349A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87DFD5F7195C239500B349A4 /* SimpleShare */;
+			targetProxy = 87DFD61E195C239600B349A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		87DFD604195C239500B349A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87DFD605195C239500B349A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		87DFD60D195C239500B349A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87DFD60E195C239500B349A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		87DFD623195C239600B349A4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87DFD624195C239600B349A4 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		87DFD628195C239600B349A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		87DFD629195C239600B349A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87DFD62B195C239600B349A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6B255DC36534BDE92FEC41F /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleShare/SimpleShare-Prefix.pch";
+				INFOPLIST_FILE = "SimpleShare/SimpleShare-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		87DFD62C195C239600B349A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6B255DC36534BDE92FEC41F /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleShare/SimpleShare-Prefix.pch";
+				INFOPLIST_FILE = "SimpleShare/SimpleShare-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		87DFD62E195C239600B349A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SimpleShare.app/SimpleShare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleShare/SimpleShare-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SimpleShareTests/SimpleShareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		87DFD62F195C239600B349A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SimpleShare.app/SimpleShare";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SimpleShare/SimpleShare-Prefix.pch";
+				INFOPLIST_FILE = "SimpleShareTests/SimpleShareTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		87DFD5F3195C239500B349A4 /* Build configuration list for PBXProject "SimpleShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87DFD628195C239600B349A4 /* Debug */,
+				87DFD629195C239600B349A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87DFD62A195C239600B349A4 /* Build configuration list for PBXNativeTarget "SimpleShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87DFD62B195C239600B349A4 /* Debug */,
+				87DFD62C195C239600B349A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87DFD62D195C239600B349A4 /* Build configuration list for PBXNativeTarget "SimpleShareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87DFD62E195C239600B349A4 /* Debug */,
+				87DFD62F195C239600B349A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 87DFD5F0195C239500B349A4 /* Project object */;
+}
