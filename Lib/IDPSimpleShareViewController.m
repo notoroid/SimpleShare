@@ -15,6 +15,7 @@
 #import "IDPFacebookPostViewController.h"
 #import "IDPSimpleShareSlideAndFadeTransition.h"
 #import "Line.h"
+#import "IDPAuthorizationViewController.h"
 
 @import Social;
 
@@ -142,71 +143,81 @@
 - (IBAction)firedTwitter:(id)sender
 {
     if( [self isEnterWorking] != YES ){
-        [self setEnterWorking:YES];
         
-        self.navigationItem.leftBarButtonItem.enabled = NO;
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-        [self setWaiting];
-        
-        UIView *backgroundView = [[UIView alloc] initWithFrame:(CGRect){CGPointZero,self.view.frame.size}];
-        backgroundView.opaque = NO;
-        backgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.5f];
-        [self.view addSubview:backgroundView];
-        
-        // 送信画像を設定
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
-            @autoreleasepool {
-                UIImage *image = [_delegate simpleShareViewController:self imageType:SimpleShareRequireImageTypeOriginal];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self setEnterWorking:NO];
-                    self.navigationItem.leftBarButtonItem.enabled = YES;
-                    self.navigationItem.rightBarButtonItem.enabled = YES;
-                    [self resetWaiting];
-                    
-                    // ビューコントローラの初期化
-                    SLComposeViewController *viewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-                    
-                    NSArray *hashTags = [_delegate simpleShareViewControllerHashTags:self];
-                    NSString *hashTagsString = [hashTags componentsJoinedByString:@" "];
-                    
-                    // 送信文字列を設定
-                    [viewController setInitialText:hashTagsString];
-                    [viewController addImage:image];
-                        // イメージを追加
-                    
-                    // イベントハンドラ定義
-                    viewController.completionHandler = ^(SLComposeViewControllerResult res) {
-                        if (res == SLComposeViewControllerResultCancelled) {
-                            // キャンセル
-                        }else if (res == SLComposeViewControllerResultDone) {
-                            NSString *albumName = [_delegate simpleShareViewControllerAlbumName:self];
-                            // アルバム名を取得
+        [IDPAuthorizationViewController authorizationWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeTwitter viewController:self completion:^(NSError *error, IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus) {
+           
+            if( authorizationStatus == IDPAuthorizationViewControllerAuthorizationStatusAuthorized ){
+                [self setEnterWorking:YES];
+                
+                self.navigationItem.leftBarButtonItem.enabled = NO;
+                self.navigationItem.rightBarButtonItem.enabled = NO;
+                [self setWaiting];
+                
+                UIView *backgroundView = [[UIView alloc] initWithFrame:(CGRect){CGPointZero,self.view.frame.size}];
+                backgroundView.opaque = NO;
+                backgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.5f];
+                [self.view addSubview:backgroundView];
+                
+                // 送信画像を設定
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
+                    @autoreleasepool {
+                        UIImage *image = [_delegate simpleShareViewController:self imageType:SimpleShareRequireImageTypeOriginal];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self setEnterWorking:NO];
+                            self.navigationItem.leftBarButtonItem.enabled = YES;
+                            self.navigationItem.rightBarButtonItem.enabled = YES;
+                            [self resetWaiting];
                             
-                            // カメラロールに保存
-                            [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:^(BOOL finished) {
-                                if( finished ){
-                                    [_delegate simpleShareViewControllerDidDone:self];
-                                }else{
-                                    // 致命的な不具合
-                                    [_delegate simpleShareViewControllerDidDone:self];
+                            // ビューコントローラの初期化
+                            SLComposeViewController *viewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                            
+                            NSArray *hashTags = [_delegate simpleShareViewControllerHashTags:self];
+                            NSString *hashTagsString = [hashTags componentsJoinedByString:@" "];
+                            
+                            // 送信文字列を設定
+                            [viewController setInitialText:hashTagsString];
+                            [viewController addImage:image];
+                            // イメージを追加
+                            
+                            // イベントハンドラ定義
+                            viewController.completionHandler = ^(SLComposeViewControllerResult res) {
+                                if (res == SLComposeViewControllerResultCancelled) {
+                                    // キャンセル
+                                }else if (res == SLComposeViewControllerResultDone) {
+                                    NSString *albumName = [_delegate simpleShareViewControllerAlbumName:self];
+                                    // アルバム名を取得
+                                    
+                                    // カメラロールに保存
+                                    [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:^(BOOL finished) {
+                                        if( finished ){
+                                            [_delegate simpleShareViewControllerDidDone:self];
+                                        }else{
+                                            // 致命的な不具合
+                                            [_delegate simpleShareViewControllerDidDone:self];
+                                        }
+                                    }];
                                 }
-                            }];
-                        }
-                        
-                        [self dismissViewControllerAnimated:YES completion:^{
+                                
+                                [self dismissViewControllerAnimated:YES completion:^{
+                                    
+                                }];
+                            };
                             
-                        }];
-                    };
-                    
-                    // 送信View表示
-                    [self presentViewController:viewController animated:YES completion:^{
-                        [backgroundView removeFromSuperview];
-                        // 背景を削除
-                    }];
-                    
+                            // 送信View表示
+                            [self presentViewController:viewController animated:YES completion:^{
+                                [backgroundView removeFromSuperview];
+                                // 背景を削除
+                            }];
+                            
+                        });
+                    }
                 });
+            
+            
+            }else{
+                [IDPAuthorizationViewController showDenyAlertWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeTwitter];
             }
-        });
+        }];
     }
 }
 
@@ -216,7 +227,7 @@
     
         if( authorizationStatus == IDPAuthorizationViewControllerAuthorizationStatusAuthorized ){
             [self performSegueWithIdentifier:@"facebookPostSegue" sender:nil];
-    
+            
         }else{
             [IDPAuthorizationViewController showDenyAlertWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypeFacebook];
         }
@@ -227,7 +238,7 @@
 {
     if( [self isEnterWorking] != YES ){
         [self setEnterWorking:YES];
-    
+        
         [self setWaiting];
         [self exportImageWithExportType:IDPSimpleShareViewControllerExportTypeLine requireImageType:SimpleShareRequireImageType1280x1280 simpleShareViewController:self delegate:_delegate];
     }

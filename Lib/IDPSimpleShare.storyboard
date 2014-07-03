@@ -172,6 +172,7 @@
                         <outlet property="label7" destination="8Pg-OS-j8U" id="y1L-DV-8wd"/>
                         <outlet property="label8" destination="T5q-vI-xU2" id="O6V-7e-g5I"/>
                         <outlet property="label9" destination="9mp-a4-SzS" id="SSy-Xw-1d8"/>
+                        <segue destination="pFF-Nb-5vq" kind="modal" identifier="facebookPostSegue" id="NsD-ma-tic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLa-Kv-epD" sceneMemberID="firstResponder"/>
@@ -202,7 +203,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="Tp1-Tj-AJQ">
                     <connections>
-                        <segue destination="pFF-Nb-5vq" kind="modal" identifier="facebookPostSegue" id="erQ-wk-mGd"/>
+                        <action selector="firedFacebook:" destination="Mxb-lM-nCs" id="hJo-4U-iea"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="9V8-Q4-kEO">
