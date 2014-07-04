@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Irimasu Densan Planning. All rights reserved.
 //
 
-#import "TransitionManager.h"
+#import "IDPSimpleShareTransitionManager.h"
 #import "IDPSimpleShareFadeTransition.h"
 #import "IDPSimpleShareViewController.h"
 #import "IDPActionViewController.h"

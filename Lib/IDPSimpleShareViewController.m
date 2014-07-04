@@ -8,7 +8,7 @@
 
 #import "IDPSimpleShareViewController.h"
 #import "IDPShareBackgroundView.h"
-#import "TransitionManager.h"
+#import "IDPSimpleShareTransitionManager.h"
 #import "IDPSimpleShareManagaer.h"
 #import "IDPSimpleShareFigureRenderer.h"
 #import "IDPActionViewController.h"
