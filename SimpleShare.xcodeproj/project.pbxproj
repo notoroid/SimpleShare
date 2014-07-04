@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870583591966E525007C4689 /* IDPSimpleShareTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 870583581966E525007C4689 /* IDPSimpleShareTransitionManager.m */; };
 		874B789E1960E2650047D9C7 /* IDPFacebookPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */; };
 		87A6EB2F1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A6EB2E1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.m */; };
 		87A750F619666F8B00D64BD7 /* IDPAbstRichModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87A750F119666F8B00D64BD7 /* IDPAbstRichModalViewController.m */; };
@@ -34,7 +35,6 @@
 		87DFD645195C244100B349A4 /* IDPSimpleShareFigureRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63B195C244100B349A4 /* IDPSimpleShareFigureRenderer.m */; };
 		87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */; };
 		87DFD647195C244100B349A4 /* IDPSimpleShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */; };
-		87DFD64B195C246700B349A4 /* IDPSimpleShareTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD64A195C246700B349A4 /* IDPSimpleShareTransitionManager.m */; };
 		87DFD64E195C25B600B349A4 /* IDPSimpleShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */; };
 		87DFD64F195C25B600B349A4 /* IDPWaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */; };
 		87DFD653195C267300B349A4 /* picture640x640.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD650195C267300B349A4 /* picture640x640.jpg */; };
@@ -55,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		44C5FA380AC1428AB6F021C2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		870583571966E525007C4689 /* IDPSimpleShareTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareTransitionManager.h; path = Lib/IDPSimpleShareTransitionManager.h; sourceTree = "<group>"; };
+		870583581966E525007C4689 /* IDPSimpleShareTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareTransitionManager.m; path = Lib/IDPSimpleShareTransitionManager.m; sourceTree = "<group>"; };
 		874B789C1960E2650047D9C7 /* IDPFacebookPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPFacebookPostViewController.h; path = Lib/IDPFacebookPostViewController.h; sourceTree = "<group>"; };
 		874B789D1960E2650047D9C7 /* IDPFacebookPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPFacebookPostViewController.m; path = Lib/IDPFacebookPostViewController.m; sourceTree = "<group>"; };
 		87A6EB2D1963CE8C006CC1CE /* IDPSimpleShareSlideAndFadeTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareSlideAndFadeTransition.h; path = Lib/IDPSimpleShareSlideAndFadeTransition.h; sourceTree = "<group>"; };
@@ -100,8 +102,6 @@
 		87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareManagaer.m; path = Lib/IDPSimpleShareManagaer.m; sourceTree = "<group>"; };
 		87DFD63E195C244100B349A4 /* IDPSimpleShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareViewController.h; path = Lib/IDPSimpleShareViewController.h; sourceTree = "<group>"; };
 		87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareViewController.m; path = Lib/IDPSimpleShareViewController.m; sourceTree = "<group>"; };
-		87DFD649195C246700B349A4 /* IDPSimpleShareTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareTransitionManager.h; path = SimpleShare/IDPSimpleShareTransitionManager.h; sourceTree = "<group>"; };
-		87DFD64A195C246700B349A4 /* IDPSimpleShareTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareTransitionManager.m; path = SimpleShare/IDPSimpleShareTransitionManager.m; sourceTree = "<group>"; };
 		87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IDPSimpleShare.storyboard; path = Lib/IDPSimpleShare.storyboard; sourceTree = "<group>"; };
 		87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDPWaitingView.xib; path = Lib/IDPWaitingView.xib; sourceTree = "<group>"; };
 		87DFD650195C267300B349A4 /* picture640x640.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture640x640.jpg; sourceTree = "<group>"; };
@@ -219,8 +219,6 @@
 			children = (
 				87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */,
 				87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */,
-				87DFD649195C246700B349A4 /* IDPSimpleShareTransitionManager.h */,
-				87DFD64A195C246700B349A4 /* IDPSimpleShareTransitionManager.m */,
 				87DFD630195C244100B349A4 /* IDPAbstShareViewController.h */,
 				87DFD631195C244100B349A4 /* IDPAbstShareViewController.m */,
 				87DFD632195C244100B349A4 /* IDPActionViewController.h */,
@@ -247,6 +245,8 @@
 				87A750F319666F8B00D64BD7 /* IDPAuthorizationFigureRenderer.m */,
 				87A750F419666F8B00D64BD7 /* IDPAuthorizationViewController.h */,
 				87A750F519666F8B00D64BD7 /* IDPAuthorizationViewController.m */,
+				870583571966E525007C4689 /* IDPSimpleShareTransitionManager.h */,
+				870583581966E525007C4689 /* IDPSimpleShareTransitionManager.m */,
 			);
 			name = Lib;
 			sourceTree = "<group>";
@@ -396,10 +396,10 @@
 				87A750F719666F8B00D64BD7 /* IDPAuthorizationFigureRenderer.m in Sources */,
 				87DFD642195C244100B349A4 /* IDPResolutionViewController.m in Sources */,
 				87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */,
-				87DFD64B195C246700B349A4 /* IDPSimpleShareTransitionManager.m in Sources */,
 				87DFD612195C239500B349A4 /* ViewController.m in Sources */,
 				87DFD60C195C239500B349A4 /* AppDelegate.m in Sources */,
 				87DFD645195C244100B349A4 /* IDPSimpleShareFigureRenderer.m in Sources */,
+				870583591966E525007C4689 /* IDPSimpleShareTransitionManager.m in Sources */,
 				87DFD647195C244100B349A4 /* IDPSimpleShareViewController.m in Sources */,
 				87DFD608195C239500B349A4 /* main.m in Sources */,
 				874B789E1960E2650047D9C7 /* IDPFacebookPostViewController.m in Sources */,
