@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "SimpleShare"
-  s.version      = "0.8.0"
+  s.version      = "0.8.1"
   s.summary      = "SimpleShare provides a user interface for sharing the image."
   
   s.description  = <<-DESC
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "7.0"
 
-  s.source       = { :git => "https://github.com/notoroid/SimpleShare.git", :tag => "v0.8.0"}
+  s.source       = { :git => "https://github.com/notoroid/SimpleShare.git", :tag => "v0.8.1"}
 
   s.dependency 'LineKit'
   s.dependency 'UIImage+BlurredFrame'
