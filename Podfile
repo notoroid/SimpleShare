@@ -1,3 +1,3 @@
 platform :ios, '7.0'
 pod 'LineKit'
-pod 'UIImage+BlurredFrame'
+pod 'SimpleAuthorization', :git => 'https://github.com/notoroid/SimpleAuthorization.git'
