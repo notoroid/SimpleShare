@@ -34,7 +34,7 @@
 		87DFD645195C244100B349A4 /* IDPSimpleShareFigureRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63B195C244100B349A4 /* IDPSimpleShareFigureRenderer.m */; };
 		87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */; };
 		87DFD647195C244100B349A4 /* IDPSimpleShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */; };
-		87DFD64B195C246700B349A4 /* TransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD64A195C246700B349A4 /* TransitionManager.m */; };
+		87DFD64B195C246700B349A4 /* IDPSimpleShareTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DFD64A195C246700B349A4 /* IDPSimpleShareTransitionManager.m */; };
 		87DFD64E195C25B600B349A4 /* IDPSimpleShare.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */; };
 		87DFD64F195C25B600B349A4 /* IDPWaitingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */; };
 		87DFD653195C267300B349A4 /* picture640x640.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87DFD650195C267300B349A4 /* picture640x640.jpg */; };
@@ -100,8 +100,8 @@
 		87DFD63D195C244100B349A4 /* IDPSimpleShareManagaer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareManagaer.m; path = Lib/IDPSimpleShareManagaer.m; sourceTree = "<group>"; };
 		87DFD63E195C244100B349A4 /* IDPSimpleShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareViewController.h; path = Lib/IDPSimpleShareViewController.h; sourceTree = "<group>"; };
 		87DFD63F195C244100B349A4 /* IDPSimpleShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareViewController.m; path = Lib/IDPSimpleShareViewController.m; sourceTree = "<group>"; };
-		87DFD649195C246700B349A4 /* TransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransitionManager.h; path = SimpleShare/TransitionManager.h; sourceTree = "<group>"; };
-		87DFD64A195C246700B349A4 /* TransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransitionManager.m; path = SimpleShare/TransitionManager.m; sourceTree = "<group>"; };
+		87DFD649195C246700B349A4 /* IDPSimpleShareTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IDPSimpleShareTransitionManager.h; path = SimpleShare/IDPSimpleShareTransitionManager.h; sourceTree = "<group>"; };
+		87DFD64A195C246700B349A4 /* IDPSimpleShareTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IDPSimpleShareTransitionManager.m; path = SimpleShare/IDPSimpleShareTransitionManager.m; sourceTree = "<group>"; };
 		87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = IDPSimpleShare.storyboard; path = Lib/IDPSimpleShare.storyboard; sourceTree = "<group>"; };
 		87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = IDPWaitingView.xib; path = Lib/IDPWaitingView.xib; sourceTree = "<group>"; };
 		87DFD650195C267300B349A4 /* picture640x640.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = picture640x640.jpg; sourceTree = "<group>"; };
@@ -219,8 +219,8 @@
 			children = (
 				87DFD64C195C25B600B349A4 /* IDPSimpleShare.storyboard */,
 				87DFD64D195C25B600B349A4 /* IDPWaitingView.xib */,
-				87DFD649195C246700B349A4 /* TransitionManager.h */,
-				87DFD64A195C246700B349A4 /* TransitionManager.m */,
+				87DFD649195C246700B349A4 /* IDPSimpleShareTransitionManager.h */,
+				87DFD64A195C246700B349A4 /* IDPSimpleShareTransitionManager.m */,
 				87DFD630195C244100B349A4 /* IDPAbstShareViewController.h */,
 				87DFD631195C244100B349A4 /* IDPAbstShareViewController.m */,
 				87DFD632195C244100B349A4 /* IDPActionViewController.h */,
@@ -396,7 +396,7 @@
 				87A750F719666F8B00D64BD7 /* IDPAuthorizationFigureRenderer.m in Sources */,
 				87DFD642195C244100B349A4 /* IDPResolutionViewController.m in Sources */,
 				87DFD646195C244100B349A4 /* IDPSimpleShareManagaer.m in Sources */,
-				87DFD64B195C246700B349A4 /* TransitionManager.m in Sources */,
+				87DFD64B195C246700B349A4 /* IDPSimpleShareTransitionManager.m in Sources */,
 				87DFD612195C239500B349A4 /* ViewController.m in Sources */,
 				87DFD60C195C239500B349A4 /* AppDelegate.m in Sources */,
 				87DFD645195C244100B349A4 /* IDPSimpleShareFigureRenderer.m in Sources */,

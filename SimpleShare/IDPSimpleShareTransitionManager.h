@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TransitionManager : NSObject<UINavigationControllerDelegate>
+@interface IDPSimpleShareTransitionManager : NSObject<UINavigationControllerDelegate>
 
-+ (TransitionManager *)sharedManager;
++ (IDPSimpleShareTransitionManager *)sharedManager;
 
 @end

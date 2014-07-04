@@ -51,7 +51,7 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:imageCloseButton landscapeImagePhone:nil style:UIBarButtonItemStyleBordered target:self action:@selector(firedCancel:)];
     
-    self.navigationController.delegate = [TransitionManager sharedManager];
+    self.navigationController.delegate = [IDPSimpleShareTransitionManager sharedManager];
     
 }
 

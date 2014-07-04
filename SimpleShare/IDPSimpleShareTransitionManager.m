@@ -12,15 +12,15 @@
 #import "IDPActionViewController.h"
 #import "IDPResolutionViewController.h"
 
-static TransitionManager *s_sharedTransitionManager = nil;
+static IDPSimpleShareTransitionManager *s_sharedTransitionManager = nil;
 
-@implementation TransitionManager
+@implementation IDPSimpleShareTransitionManager
 
-+ (TransitionManager *)sharedManager
++ (IDPSimpleShareTransitionManager *)sharedManager
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        s_sharedTransitionManager = [[TransitionManager alloc] init];
+        s_sharedTransitionManager = [[IDPSimpleShareTransitionManager alloc] init];
     });
     return s_sharedTransitionManager;
 }
