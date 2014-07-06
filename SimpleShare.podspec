@@ -21,9 +21,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/notoroid/SimpleShare.git", :tag => "v0.8.2",:submodules => true }
   s.dependency 'LineKit'
   s.dependency 'UIImage+BlurredFrame'
-
-  s.source_files  = "Lib/**/*.{h,m}","Libs/SimpleAuthorization/Lib/**/*.{h,m}"
-  s.public_header_files = "Lib/**/*.h","Libs/SimpleAuthorization/Lib/**/*.h"
+  s.source_files  = "Lib/**/*.{h,m}"
+  s.public_header_files = "Lib/**/*.h"
   s.resources = "Lib/*.{xib,storyboard}"
   s.frameworks = "QuartzCore", "AssetsLibrary", "Social", "Accounts", "MessageUI", "MobileCoreServices"
   s.requires_arc = true
