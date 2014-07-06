@@ -1,0 +1,3 @@
+[submodule "Libs/SimpleAuthorization"]
+	path = Libs/SimpleAuthorization
+	url = git://github.com/notoroid/SimpleAuthorization.git
