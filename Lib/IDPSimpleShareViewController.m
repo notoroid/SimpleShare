@@ -157,6 +157,9 @@
                 backgroundView.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:.5f];
                 [self.view addSubview:backgroundView];
                 
+                BOOL alwaysSaveCameraRoll = [_delegate simpleShareViewControllerAlwaysSaveCameraRoll:self];
+                    // 保存するかを問い合わせ
+                
                 // 送信画像を設定
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
                     @autoreleasepool {
@@ -185,15 +188,25 @@
                                     NSString *albumName = [_delegate simpleShareViewControllerAlbumName:self];
                                     // アルバム名を取得
                                     
-                                    // カメラロールに保存
-                                    [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:^(BOOL finished) {
-                                        if( finished ){
+                                    if( alwaysSaveCameraRoll ){
+                                        // カメラロールに保存
+                                        [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:^(BOOL finished) {
+                                            if( finished ){
+                                                [_delegate simpleShareViewControllerDidDone:self];
+                                            }else{
+                                                // 致命的な不具合
+                                                [_delegate simpleShareViewControllerDidDone:self];
+                                            }
+                                        }];
+                                    }else{
+                                        if( [NSThread isMainThread]){
                                             [_delegate simpleShareViewControllerDidDone:self];
                                         }else{
-                                            // 致命的な不具合
-                                            [_delegate simpleShareViewControllerDidDone:self];
+                                            dispatch_async(dispatch_get_main_queue(), ^{
+                                                [_delegate simpleShareViewControllerDidDone:self];
+                                            });
                                         }
-                                    }];
+                                    }
                                 }
                                 
                                 [self dismissViewControllerAnimated:YES completion:^{

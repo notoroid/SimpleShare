@@ -169,7 +169,10 @@
         }
         
         NSDictionary *metadata = [delegate simpleShareViewControllerMessageMetadata:simpleShareViewController];
-        // metadataを取得
+            // metadataを取得
+        
+        BOOL alwaysSaveCameraRoll = [delegate simpleShareViewControllerAlwaysSaveCameraRoll:simpleShareViewController];
+            // 保存するかを問い合わせ
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0),^{
             @autoreleasepool {
@@ -177,8 +180,8 @@
                 
                 NSString *albumName = [delegate simpleShareViewControllerAlbumName:simpleShareViewController];
                 // アルバム名を取得
-                // 保存
-                [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:^(BOOL finished) {
+                
+                void (^completion)(BOOL finished) = ^(BOOL finished) {
                     [self updateUserInterfaceWithEnable:YES];
                     [self resetWaiting];
                     
@@ -325,8 +328,20 @@
                         default:
                             break;
                     }
-                }];
+                };
                 
+                if( exportType != IDPSimpleShareViewControllerExportTypeCameraRollOnly && alwaysSaveCameraRoll == NO ){
+                    if( [NSThread mainThread] ){
+                        completion(YES);
+                    }else{
+                        dispatch_async(dispatch_get_main_queue(),^{
+                            completion(YES);
+                        });
+                    }
+                }else{
+                    // 保存
+                    [[IDPSimpleShareManagaer sharedManager] saveImage:image withAlbumName:albumName metadata:nil completion:completion];
+                }
             }
         });
     };

@@ -110,4 +110,9 @@
     }];
 }
 
+- (BOOL) simpleShareViewControllerAlwaysSaveCameraRoll:(IDPSimpleShareViewController *)simpleShareViewController
+{
+    return NO;
+}
+
 @end

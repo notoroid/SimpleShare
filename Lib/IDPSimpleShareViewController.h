@@ -26,6 +26,7 @@
 - (UIImage *)simpleShareViewController:(IDPSimpleShareViewController *)simpleShareViewController imageType:(SimpleShareRequireImageType)imageType;
 - (NSString *)simpleShareViewControllerAlbumName:(IDPSimpleShareViewController *)simpleShareViewController;
 - (NSArray *)simpleShareViewControllerHashTags:(IDPSimpleShareViewController *)simpleShareViewController;
+- (BOOL) simpleShareViewControllerAlwaysSaveCameraRoll:(IDPSimpleShareViewController *)simpleShareViewController;
 
 - (NSString *)simpleShareViewControllerFacebookAppID:(IDPSimpleShareViewController *)simpleShareViewController;
 
