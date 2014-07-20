@@ -325,8 +325,9 @@ static BOOL s_acceptFacebookPost = NO;
 {
 	NSString *repositoryFileName = @"simpleAuthorization.dat";
     NSString *repositoryAcceptTwitterPost = @"AcceptTwitterPost";
-        // AssetLibrary,Facebook は都度確認を行うので必用無し
-        // Twitter のみ初回確認有り
+    NSString *repositoryAcceptFacebookPost = @"AcceptFacebookPost";
+        // AssetLibrary は都度確認を行うので必用無し
+        // Twitter,Facebook は初回確認有り
     
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentDirectory = [paths objectAtIndex:0];
@@ -340,6 +341,7 @@ static BOOL s_acceptFacebookPost = NO;
 			NSKeyedUnarchiver *decoder = [[NSKeyedUnarchiver alloc] initForReadingWithData:theData];
 			
             s_acceptTwitterPost = [decoder decodeBoolForKey:repositoryAcceptTwitterPost];
+            s_acceptFacebookPost = [decoder decodeBoolForKey:repositoryAcceptFacebookPost];
             
 			[decoder finishDecoding];
 		}
@@ -348,6 +350,7 @@ static BOOL s_acceptFacebookPost = NO;
 		NSKeyedArchiver *encoder = [[NSKeyedArchiver alloc] initForWritingWithMutableData:theData];
 		
         [encoder encodeBool:s_acceptTwitterPost forKey:repositoryAcceptTwitterPost];
+        [encoder encodeBool:s_acceptFacebookPost forKey:repositoryAcceptFacebookPost];
 
         [encoder finishEncoding];
 		[theData writeToFile:dataFilepath atomically:YES];
