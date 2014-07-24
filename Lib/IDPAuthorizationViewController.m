@@ -17,7 +17,7 @@ static UIView *s_authorizationView = nil;
 static UIViewController *s_authorizationViewController = nil;
 static BOOL s_acceptTwitterPost = NO;
 static BOOL s_acceptFacebookPost = NO;
-
+static BOOL s_acceptPushNotification = NO;
 
 @interface IDPAuthorizationViewController ()
 {
@@ -60,6 +60,46 @@ static BOOL s_acceptFacebookPost = NO;
     });
     
     switch (authorizationType) {
+#pragma mark - PushNotification 
+        case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
+        {
+            if( s_visibleAuthorization != YES && s_acceptPushNotification != YES ){
+                UIImageView *backgroundView = [IDPAuthorizationViewController backgroundViewWithViewController:viewController];
+                // 背景画像を生成
+                
+                CGRect frame = (CGRect){CGPointZero,[viewController view].frame.size};
+                UIViewAutoresizing autoresizingMask = [viewController view].autoresizingMask;
+                
+                IDPAuthorizationViewController* asstsLibraryAuthorizationViewController = [[IDPAuthorizationViewController alloc] initWithAuthorizationType:IDPAuthorizationViewControllerAuthorizationTypePushNotification option:option];
+                
+                UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:asstsLibraryAuthorizationViewController];
+                navigationController.navigationBarHidden = YES;
+                
+                id newViewController = navigationController;
+                id asstsLibraryAuthorizationController = asstsLibraryAuthorizationViewController;
+                
+                [asstsLibraryAuthorizationController setBackgroundView:backgroundView];
+                [asstsLibraryAuthorizationController setCompletion:completion];
+                [asstsLibraryAuthorizationController setBoardOffset:navigationBarHidden ? CGPointZero : CGPointMake(.0f, 44.0f)];
+                
+                s_authorizationViewController = newViewController;
+                s_authorizationView = [newViewController view];
+                s_authorizationView.frame = frame;
+                s_authorizationView.autoresizingMask = autoresizingMask;
+                
+                [viewController addChildViewController:newViewController];
+                [[viewController view] addSubview:s_authorizationView];
+            }else{
+                BOOL isAvailable = [UIApplication sharedApplication].enabledRemoteNotificationTypes & (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert) ? YES : NO;
+                if( isAvailable ){
+                    completion(nil,IDPAuthorizationViewControllerAuthorizationContinuePushNotificationRegistration);
+                        // ユーザー登録を許可
+                }else{
+                    completion(nil,IDPAuthorizationViewControllerAuthorizationNoAvailable);
+                }
+            }
+        }
+            break;
 #pragma mark - Twitter authorization
         case IDPAuthorizationViewControllerAuthorizationTypeTwitter:
         {
@@ -326,7 +366,8 @@ static BOOL s_acceptFacebookPost = NO;
 	NSString *repositoryFileName = @"simpleAuthorization.dat";
     NSString *repositoryAcceptTwitterPost = @"AcceptTwitterPost";
     NSString *repositoryAcceptFacebookPost = @"AcceptFacebookPost";
-        // AssetLibrary は都度確認を行うので必用無し
+    NSString *repositoryPushNotification = @"PushNotification";
+        // AssetLibrary,Facebook は都度確認を行うので必用無し
         // Twitter,Facebook は初回確認有り
     
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -342,7 +383,7 @@ static BOOL s_acceptFacebookPost = NO;
 			
             s_acceptTwitterPost = [decoder decodeBoolForKey:repositoryAcceptTwitterPost];
             s_acceptFacebookPost = [decoder decodeBoolForKey:repositoryAcceptFacebookPost];
-            
+            s_acceptPushNotification =  [decoder decodeBoolForKey:repositoryPushNotification];
 			[decoder finishDecoding];
 		}
 	}else{ // 反映
@@ -351,6 +392,7 @@ static BOOL s_acceptFacebookPost = NO;
 		
         [encoder encodeBool:s_acceptTwitterPost forKey:repositoryAcceptTwitterPost];
         [encoder encodeBool:s_acceptFacebookPost forKey:repositoryAcceptFacebookPost];
+        [encoder encodeBool:s_acceptPushNotification forKey:repositoryPushNotification];
 
         [encoder finishEncoding];
 		[theData writeToFile:dataFilepath atomically:YES];
@@ -402,6 +444,15 @@ static BOOL s_acceptFacebookPost = NO;
 - (void) constructContentWithBoardView:(UIView *)boardView
 {
     switch (_authorizationType) {
+        case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
+        {
+            UILabel *label = (UILabel *)[boardView viewWithTag:IDPAuthorizationLabelTag];
+            label.attributedText = [[NSAttributedString alloc] initWithString:@"通知の許可" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
+            
+            UITextView *textView = (UITextView *)[boardView viewWithTag:IDPAuthorizationTextViewTag];
+            textView.attributedText = [[NSAttributedString alloc] initWithString:@"通知の許可をお願いします。" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+        }
+            break;
         case IDPAuthorizationViewControllerAuthorizationTypeAssetsLibrary:
         {
             UILabel *label = (UILabel *)[boardView viewWithTag:IDPAuthorizationLabelTag];
@@ -460,6 +511,13 @@ static BOOL s_acceptFacebookPost = NO;
 - (void) authorized
 {
     switch (_authorizationType) {
+        case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
+        {
+            _completion(nil,IDPAuthorizationViewControllerAuthorizationContinuePushNotificationRegistration);
+            _completion = nil;
+            [IDPAuthorizationViewController closeIntroduction];
+        }
+            break;
         case IDPAuthorizationViewControllerAuthorizationTypeAssetsLibrary:
         {
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
