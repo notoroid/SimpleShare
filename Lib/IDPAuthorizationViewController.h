@@ -30,6 +30,21 @@ typedef NS_ENUM(NSInteger, IDPAuthorizationViewControllerAuthorizationStatus)
 };
 
 #define kIDPAuthorizationViewControllerOptionFacebookAppID @"FacebookAppID"
+    // initWithAuthorizationType: option: method option
+
+#define IDP_AUTHORIZATION_LATER NSLocalizedStringFromTable(@"また後で", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_ACCEPT NSLocalizedStringFromTable(@"アクセスを許可", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_NOTIFICATION_TITLE NSLocalizedStringFromTable(@"通知の許可", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_NOTIFICATION_MESSAGE NSLocalizedStringFromTable(@"通知の許可をお願いします。", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_NOTIFICATION_ACCEPT NSLocalizedStringFromTable(@"通知を許可する", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_ASSETS_LIBRARY_TITLE NSLocalizedStringFromTable(@"写真へのアクセスを許可", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_ASSETS_LIBRARY_MESSAGE NSLocalizedStringFromTable(@"写真アルバムへアクセスを許可をお願いします。", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_FACEBOOK_POST_TITLE NSLocalizedStringFromTable(@"Facebookへのアクセスを許可", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_FACEBOOK_POST_MESSAGE NSLocalizedStringFromTable(@"Facebookへの写真投稿の許可をお願いします。", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_TWITTER_POST_TITLE NSLocalizedStringFromTable(@"Twitterへの投稿を許可", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_TWITTER_POST_MESSAGE NSLocalizedStringFromTable(@"Twitterへの投稿許可をお願いします。", @"IDPAuthorizationLocalizable", nil)
+#define IDP_AUTHORIZATION_CONTINUE NSLocalizedStringFromTable(@"了解", @"IDPAuthorizationLocalizable", nil)
+
 
 typedef void (^IDPAuthorizationViewControllerCompletionBlock)(NSError *error,IDPAuthorizationViewControllerAuthorizationStatus authorizationStatus);
 

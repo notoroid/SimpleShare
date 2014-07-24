@@ -443,56 +443,131 @@ static BOOL s_acceptPushNotification = NO;
 
 - (void) constructContentWithBoardView:(UIView *)boardView
 {
+    void (^blockDefaultCancel)() = ^{
+        UIButton *laterButton = (UIButton *)[boardView viewWithTag:IDPAuthorizationLaterAuthorizeButtonTag];
+        laterButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
+        [laterButton setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_LATER
+                                                                        attributes:@{
+                                                                                     NSFontAttributeName:[UIFont systemFontOfSize:14.0f]
+                                                                                     ,NSForegroundColorAttributeName:[UIColor colorWithRed: 0 green: 0.424 blue: 0.941 alpha: 1]
+                                                                                     }
+                                         ] forState:UIControlStateNormal];
+        [laterButton setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_LATER
+                                                                        attributes:@{
+                                                                                     NSFontAttributeName:[UIFont systemFontOfSize:14.0f]
+                                                                                     ,NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                                                     }
+                                         ] forState:UIControlStateHighlighted];
+    };
+
+    void (^blockDefaultAccept)() = ^{
+        UIButton *authorizedButton = (UIButton *)[boardView viewWithTag:IDPAuthorizationAuthorizedButtonTag];
+        authorizedButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
+        [authorizedButton setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_ACCEPT
+                                                                             attributes:@{
+                                                                                          NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                                                          }
+                                              ] forState:UIControlStateNormal];
+        [authorizedButton setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_ACCEPT
+                                                                             attributes:@{
+                                                                                          NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor colorWithRed: 0 green: 0.424 blue: 0.941 alpha: 1]
+                                                                                          }
+                                              ] forState:UIControlStateHighlighted];
+    };
+
+    
     switch (_authorizationType) {
         case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
         {
             UILabel *label = (UILabel *)[boardView viewWithTag:IDPAuthorizationLabelTag];
-            label.attributedText = [[NSAttributedString alloc] initWithString:@"通知の許可" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
+            label.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_NOTIFICATION_TITLE attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
             
             UITextView *textView = (UITextView *)[boardView viewWithTag:IDPAuthorizationTextViewTag];
-            textView.attributedText = [[NSAttributedString alloc] initWithString:@"通知の許可をお願いします。" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            textView.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_NOTIFICATION_MESSAGE attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            
+            blockDefaultCancel();
+            
+            UIButton *buttonAccept = (UIButton *)[boardView viewWithTag:IDPAuthorizationAuthorizedButtonTag];
+            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_NOTIFICATION_ACCEPT
+                                                                             attributes:@{
+                                                                                          NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                                                          }
+                                              ] forState:UIControlStateNormal];
+            
+            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_NOTIFICATION_ACCEPT
+                                                                             attributes:@{
+                                                                                           NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor colorWithRed: 0 green: 0.424 blue: 0.941 alpha: 1]
+                                                                                          }
+                                              ] forState:UIControlStateHighlighted];
+            
         }
             break;
         case IDPAuthorizationViewControllerAuthorizationTypeAssetsLibrary:
         {
             UILabel *label = (UILabel *)[boardView viewWithTag:IDPAuthorizationLabelTag];
-            label.attributedText = [[NSAttributedString alloc] initWithString:@"写真へのアクセスを許可" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
+            label.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_ASSETS_LIBRARY_TITLE attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
             
             UITextView *textView = (UITextView *)[boardView viewWithTag:IDPAuthorizationTextViewTag];
-            textView.attributedText = [[NSAttributedString alloc] initWithString:@"写真アルバムへアクセスを許可をお願いします。" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            textView.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_ASSETS_LIBRARY_MESSAGE attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            
+            blockDefaultCancel();
+            
+            blockDefaultAccept();
+            
         }
             break;
         case IDPAuthorizationViewControllerAuthorizationTypeFacebook:
         {
             UILabel *label = (UILabel *)[boardView viewWithTag:IDPAuthorizationLabelTag];
-            label.attributedText = [[NSAttributedString alloc] initWithString:@"Facebookへのアクセスを許可" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:15.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
+            label.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_FACEBOOK_POST_TITLE attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:15.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
             
             UITextView *textView = (UITextView *)[boardView viewWithTag:IDPAuthorizationTextViewTag];
-            textView.attributedText = [[NSAttributedString alloc] initWithString:@"Facebookへの写真投稿の許可をお願いします。" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            textView.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_FACEBOOK_POST_MESSAGE attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            
+            blockDefaultCancel();
+            
+            UIButton *buttonAccept = (UIButton *)[boardView viewWithTag:IDPAuthorizationAuthorizedButtonTag];
+            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_CONTINUE
+                                                                             attributes:@{
+                                                                                          NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor whiteColor]
+                                                                                          }
+                                              ] forState:UIControlStateNormal];
+            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_CONTINUE
+                                                                             attributes:@{
+                                                                                          NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor colorWithRed: 0 green: 0.424 blue: 0.941 alpha: 1]
+                                                                                          }
+                                              ] forState:UIControlStateHighlighted];
         }
             break;
         case IDPAuthorizationViewControllerAuthorizationTypeTwitter:
         {
             UILabel *label = (UILabel *)[boardView viewWithTag:IDPAuthorizationLabelTag];
-            label.attributedText = [[NSAttributedString alloc] initWithString:@"Twitterへの投稿を許可" attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
+            label.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_TWITTER_POST_TITLE attributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:19.0f],NSForegroundColorAttributeName:[UIColor colorWithRed:.02f green:.02f blue:.02f alpha:1.0f]}];
             
             UITextView *textView = (UITextView *)[boardView viewWithTag:IDPAuthorizationTextViewTag];
-            textView.attributedText = [[NSAttributedString alloc] initWithString:@"Twitterへの投稿許可をお願いします。" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            textView.attributedText = [[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_TWITTER_POST_MESSAGE attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
+            
+            blockDefaultCancel();
             
             UIButton *buttonAccept = (UIButton *)[boardView viewWithTag:IDPAuthorizationAuthorizedButtonTag];
-            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:@"了解"
+            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_CONTINUE
                                                                                  attributes:@{
                                                                                               NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
                                                                                               ,NSForegroundColorAttributeName:[UIColor whiteColor]
                                                                                               }
                                                   ] forState:UIControlStateNormal];
-            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:@"了解"
-                                                                                 attributes:@{
-                                                                                              NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
-                                                                                              ,NSForegroundColorAttributeName:[UIColor colorWithRed: 0 green: 0.424 blue: 0.941 alpha: 1]
-                                                                                              }
-                                                  ] forState:UIControlStateHighlighted];
-            
+            [buttonAccept setAttributedTitle:[[NSAttributedString alloc] initWithString:IDP_AUTHORIZATION_CONTINUE
+                                                                             attributes:@{
+                                                                                          NSFontAttributeName:[UIFont boldSystemFontOfSize:14.0f]
+                                                                                          ,NSForegroundColorAttributeName:[UIColor colorWithRed: 0 green: 0.424 blue: 0.941 alpha: 1]
+                                                                                          }
+                                              ] forState:UIControlStateHighlighted];
         }
             break;
         default:

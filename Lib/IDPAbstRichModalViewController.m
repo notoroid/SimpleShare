@@ -49,7 +49,8 @@ static UIImage *s_maskImage = nil;
         textView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
         textView.attributedText = [[NSAttributedString alloc] initWithString:@"写真アルバムへアクセスを許可をお願いします。" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.0f],NSForegroundColorAttributeName:[UIColor darkGrayColor]}];
         textView.textAlignment = NSTextAlignmentLeft;
-        textView.userInteractionEnabled = NO;
+        textView.editable = NO;
+        textView.selectable = NO;
         [boardView addSubview:textView];
         
         UIButton *laterButton = [[UIButton alloc] initWithFrame:CGRectMake(20, 246, 112, 36)];
