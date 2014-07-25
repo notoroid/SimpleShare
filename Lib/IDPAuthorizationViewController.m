@@ -588,6 +588,10 @@ static BOOL s_acceptPushNotification = NO;
     switch (_authorizationType) {
         case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
         {
+            s_acceptPushNotification = YES;
+            [IDPAuthorizationViewController updateRepositoryWithUpdate:NO];
+                // レポジトリを更新
+            
             _completion(nil,IDPAuthorizationViewControllerAuthorizationContinuePushNotificationRegistration);
             _completion = nil;
             [IDPAuthorizationViewController closeIntroduction];
