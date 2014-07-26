@@ -597,7 +597,7 @@ static NSDate *s_pushNotificationTimeBeforeReminding = nil;
     switch (_authorizationType) {
         case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
         {
-            s_pushNotificationTimeBeforeReminding = [NSDate dateWithTimeIntervalSinceNow:60.0f /** 60.0f * 24.0f * 1.0f*/];
+            s_pushNotificationTimeBeforeReminding = [NSDate dateWithTimeIntervalSinceNow:60.0f * 60.0f * 24.0f * 1.0f];
             [IDPAuthorizationViewController updateRepositoryWithUpdate:NO];
         }
             break;
