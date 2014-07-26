@@ -23,10 +23,11 @@ typedef NS_ENUM(NSInteger, IDPAuthorizationViewControllerAuthorizationStatus)
     ,IDPAuthorizationViewControllerAuthorizationStatusDenied // denied(Assets Library,facebook)
     ,IDPAuthorizationViewControllerAuthorizationStatusCancel // later authorize(Assets Library,facebook) or later accept(twitter)
     ,IDPAuthorizationViewControllerAuthorizationStatusRestricted // AssetsLibrary
-    ,IDPAuthorizationViewControllerAuthorizationNoAvailable // Twitter,Facebook
+    ,IDPAuthorizationViewControllerAuthorizationStatusNoAvailable // Twitter,Facebook
     ,IDPAuthorizationViewControllerAuthorizationStatusFailure // fail Facebook
-    ,IDPAuthorizationViewControllerAuthorizationNottingApplicationID // fail facebook
-    ,IDPAuthorizationViewControllerAuthorizationContinuePushNotificationRegistration // PushuNotification continue Registration
+    ,IDPAuthorizationViewControllerAuthorizationStatusNottingApplicationID // fail facebook
+    ,IDPAuthorizationViewControllerAuthorizationStatusContinuePushNotificationRegistration // PushuNotification continue Registration
+    ,IDPAuthorizationViewControllerAuthorizationStatusReminding // remingind pushnotification
 };
 
 #define kIDPAuthorizationViewControllerOptionFacebookAppID @"FacebookAppID"

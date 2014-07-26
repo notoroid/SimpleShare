@@ -18,6 +18,7 @@ static UIViewController *s_authorizationViewController = nil;
 static BOOL s_acceptTwitterPost = NO;
 static BOOL s_acceptFacebookPost = NO;
 static BOOL s_acceptPushNotification = NO;
+static NSDate *s_pushNotificationTimeBeforeReminding = nil;
 
 @interface IDPAuthorizationViewController ()
 {
@@ -63,7 +64,7 @@ static BOOL s_acceptPushNotification = NO;
 #pragma mark - PushNotification 
         case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
         {
-            if( s_visibleAuthorization != YES && s_acceptPushNotification != YES ){
+            dispatch_block_t blockNotificationAuthorize = ^{
                 UIImageView *backgroundView = [IDPAuthorizationViewController backgroundViewWithViewController:viewController];
                 // 背景画像を生成
                 
@@ -89,14 +90,25 @@ static BOOL s_acceptPushNotification = NO;
                 
                 [viewController addChildViewController:newViewController];
                 [[viewController view] addSubview:s_authorizationView];
-            }else{
-                BOOL isAvailable = [UIApplication sharedApplication].enabledRemoteNotificationTypes & (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert) ? YES : NO;
-                if( isAvailable ){
-                    completion(nil,IDPAuthorizationViewControllerAuthorizationContinuePushNotificationRegistration);
-                        // ユーザー登録を許可
+            };
+            
+            if( s_visibleAuthorization != YES && s_acceptPushNotification != YES ){
+                if( s_pushNotificationTimeBeforeReminding == nil ){
+                    blockNotificationAuthorize();
                 }else{
-                    completion(nil,IDPAuthorizationViewControllerAuthorizationNoAvailable);
+                    NSTimeInterval pastTime = [s_pushNotificationTimeBeforeReminding timeIntervalSinceNow];
+                    if( pastTime < 0 ){
+                        blockNotificationAuthorize();
+                        s_pushNotificationTimeBeforeReminding = nil;
+                        [IDPAuthorizationViewController updateRepositoryWithUpdate:NO];
+                    }else{
+                        completion(nil,IDPAuthorizationViewControllerAuthorizationStatusReminding);
+                            // リマインド中
+                    }
                 }
+            }else{
+                completion(nil,IDPAuthorizationViewControllerAuthorizationStatusContinuePushNotificationRegistration);
+                // ユーザー登録を許可
             }
         }
             break;
@@ -149,7 +161,7 @@ static BOOL s_acceptPushNotification = NO;
                            });
                        }];
                 }else{
-                    completion(nil,IDPAuthorizationViewControllerAuthorizationNoAvailable);
+                    completion(nil,IDPAuthorizationViewControllerAuthorizationStatusNoAvailable);
                 }
             }
         }
@@ -215,10 +227,10 @@ static BOOL s_acceptPushNotification = NO;
                                }
                          ];
                     }else{
-                        completion(nil,IDPAuthorizationViewControllerAuthorizationNottingApplicationID);
+                        completion(nil,IDPAuthorizationViewControllerAuthorizationStatusNottingApplicationID);
                     }
                 }else{
-                    completion(nil,IDPAuthorizationViewControllerAuthorizationNoAvailable);
+                    completion(nil,IDPAuthorizationViewControllerAuthorizationStatusNoAvailable);
                 }
             }
             
@@ -367,6 +379,7 @@ static BOOL s_acceptPushNotification = NO;
     NSString *repositoryAcceptTwitterPost = @"AcceptTwitterPost";
     NSString *repositoryAcceptFacebookPost = @"AcceptFacebookPost";
     NSString *repositoryPushNotification = @"PushNotification";
+    NSString *repositoryPushNotificationTimeBeforeReminding = @"PushNotificationTimeBeforeReminding";
         // AssetLibrary,Facebook は都度確認を行うので必用無し
         // Twitter,Facebook は初回確認有り
     
@@ -384,6 +397,8 @@ static BOOL s_acceptPushNotification = NO;
             s_acceptTwitterPost = [decoder decodeBoolForKey:repositoryAcceptTwitterPost];
             s_acceptFacebookPost = [decoder decodeBoolForKey:repositoryAcceptFacebookPost];
             s_acceptPushNotification =  [decoder decodeBoolForKey:repositoryPushNotification];
+            s_pushNotificationTimeBeforeReminding = [decoder decodeObjectForKey:repositoryPushNotificationTimeBeforeReminding];
+            
 			[decoder finishDecoding];
 		}
 	}else{ // 反映
@@ -393,6 +408,7 @@ static BOOL s_acceptPushNotification = NO;
         [encoder encodeBool:s_acceptTwitterPost forKey:repositoryAcceptTwitterPost];
         [encoder encodeBool:s_acceptFacebookPost forKey:repositoryAcceptFacebookPost];
         [encoder encodeBool:s_acceptPushNotification forKey:repositoryPushNotification];
+        [encoder encodeObject:s_pushNotificationTimeBeforeReminding forKey:repositoryPushNotificationTimeBeforeReminding];
 
         [encoder finishEncoding];
 		[theData writeToFile:dataFilepath atomically:YES];
@@ -578,6 +594,17 @@ static BOOL s_acceptPushNotification = NO;
 
 - (void) laterAuthorize
 {
+    switch (_authorizationType) {
+        case IDPAuthorizationViewControllerAuthorizationTypePushNotification:
+        {
+            s_pushNotificationTimeBeforeReminding = [NSDate dateWithTimeIntervalSinceNow:60.0f /** 60.0f * 24.0f * 1.0f*/];
+            [IDPAuthorizationViewController updateRepositoryWithUpdate:NO];
+        }
+            break;
+        default:
+            break;
+    }
+    
     _completion(nil,IDPAuthorizationViewControllerAuthorizationStatusCancel);
     _completion = nil;
     [IDPAuthorizationViewController closeIntroduction];
@@ -592,7 +619,7 @@ static BOOL s_acceptPushNotification = NO;
             [IDPAuthorizationViewController updateRepositoryWithUpdate:NO];
                 // レポジトリを更新
             
-            _completion(nil,IDPAuthorizationViewControllerAuthorizationContinuePushNotificationRegistration);
+            _completion(nil,IDPAuthorizationViewControllerAuthorizationStatusContinuePushNotificationRegistration);
             _completion = nil;
             [IDPAuthorizationViewController closeIntroduction];
         }
