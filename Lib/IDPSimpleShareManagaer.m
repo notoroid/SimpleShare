@@ -19,6 +19,7 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
 {
     ALAssetsLibrary *_library;
     NSDictionary *_captionsByIconType;
+    dispatch_group_t _groupSave;
 }
 @property(readonly,nonatomic) ALAssetsLibrary *library;
 @end
@@ -80,7 +81,10 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
         completion(NO);
     }
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    __block BOOL finished = NO;
+    
+    _groupSave = dispatch_group_create();
+    dispatch_group_async(_groupSave, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) , ^{
         // 写真を保存
         __block BOOL undiscoveredGroup = YES;
         [self.library writeImageToSavedPhotosAlbum:image.CGImage metadata:nil completionBlock:^(NSURL *assetURL, NSError *error) {
@@ -95,9 +99,7 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
                                                                 // このassetGroup にassetを追加
                                                                 [group addAsset:asset];
                                                                 
-                                                                dispatch_async(dispatch_get_main_queue(), ^{
-                                                                    completion(YES);
-                                                                });
+                                                                finished = YES;
                                                                 
                                                                 undiscoveredGroup = NO;
                                                                 *stop = YES;
@@ -108,15 +110,11 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
                                                                     // このassetGroup にassetを追加
                                                                     [group addAsset:asset];
                                                                     
-                                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                                        completion(YES);
-                                                                    });
+                                                                    finished = YES;
                                                                     
                                                                 } failureBlock:^(NSError *error) {
-                                                                    // 致命的なエラーなのでキャンセルを呼び出しておく
-                                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                                        completion(NO);
-                                                                    });
+                                                                    finished = NO;
+                                                                        // 致命的なエラー
                                                                 }];
                                                             }
                                                             
@@ -127,24 +125,23 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
                                                       //                                      NSLog(@"Error %@, %@", error, [error userInfo]);
                                                       
                                                       // 致命的なエラーなのでキャンセルを呼び出しておく
-                                                      dispatch_async(dispatch_get_main_queue(), ^{
-                                                          completion(NO);
-                                                      });
+                                                      finished = NO;
                                                   }
                          ];
                     } failureBlock:^(NSError *error) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            completion(NO);
-                        });
+                        finished = NO;
                     }];
                 }else{
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        completion(YES);
-                    });
+                    finished = YES;
                 }
             }
         }];
     });
+    
+    dispatch_group_notify(_groupSave, dispatch_get_main_queue(), ^{
+        completion(finished);
+    });
+    
     
     
 }
