@@ -252,7 +252,7 @@ static NSDate *s_pushNotificationTimeBeforeReminding = nil;
                 //        labelText = @"写真へのアクセスが許可されています";
             }
             
-            if( s_visibleAuthorization != YES && status == ALAuthorizationStatusNotDetermined){
+            if( s_visibleAuthorization != YES && status == ALAuthorizationStatusNotDetermined ){
                 s_visibleAuthorization = YES;
                 
                 UIImageView *backgroundView = [IDPAuthorizationViewController backgroundViewWithViewController:viewController];
@@ -626,16 +626,22 @@ static NSDate *s_pushNotificationTimeBeforeReminding = nil;
             break;
         case IDPAuthorizationViewControllerAuthorizationTypeAssetsLibrary:
         {
+            __block acceptAssetsLibrary = NO;
+            
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
             [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-                _completion(nil,IDPAuthorizationViewControllerAuthorizationStatusAuthorized);
-                _completion = nil;
-                [IDPAuthorizationViewController closeIntroduction];
+                acceptAssetsLibrary = YES;
+                *stop = YES;
             } failureBlock:^(NSError *error) {
-                _completion(nil,IDPAuthorizationViewControllerAuthorizationStatusAuthorized);
+
+            }];
+            
+            if( _completion != nil ){
+                _completion(nil,acceptAssetsLibrary != NO ? IDPAuthorizationViewControllerAuthorizationStatusAuthorized : IDPAuthorizationViewControllerAuthorizationStatusAuthorized );
                 _completion = nil;
                 [IDPAuthorizationViewController closeIntroduction];
-            }];
+            }
+            
         }
             break;
         case IDPAuthorizationViewControllerAuthorizationTypeFacebook:
