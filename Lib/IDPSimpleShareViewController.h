@@ -16,6 +16,8 @@
 #define kIDPSimpleShareViewControllerMetadataBody @"body"
 #define kIDPSimpleShareViewControllerMetadataMessage @"message"
 
+#define kIDPSimpleShareViewControllerIgnoreFacebookAppID @"YOUR_FACEBOOK_APP_ID"
+
 @interface IDPSimpleShareViewController : IDPAbstShareViewController
 + (instancetype) simpleShareViewController;
 @property (weak,nonatomic) id<IDPSimpleShareViewControllerDelegate> delegate;

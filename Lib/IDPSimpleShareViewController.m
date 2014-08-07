@@ -111,6 +111,20 @@
         }
     }
     
+    NSString* facebookID = [_delegate simpleShareViewControllerFacebookAppID:self];
+    if( [facebookID isEqualToString:kIDPSimpleShareViewControllerIgnoreFacebookAppID] ){
+        __block NSUInteger facebookIndex = NSUIntegerMax;
+        [iconTypes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            if( [obj integerValue] == IDPShareBackgroundViewIconTypeFacebook ){
+                facebookIndex = idx;
+                *stop = YES;
+            }
+        }];
+        if( facebookIndex != NSUIntegerMax ){
+            iconTypes[facebookIndex] = @(IDPShareBackgroundViewIconTypeEmpty);
+        }
+    }
+    
     
     return iconTypes;
 }
