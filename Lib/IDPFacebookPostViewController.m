@@ -31,6 +31,9 @@
     __weak IBOutlet UIView *_messageBaseView;
     
     dispatch_group_t _groupPost;
+    
+    __weak IBOutlet UILabel *_titleLabel;
+    
 }
 @end
 
@@ -48,6 +51,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _titleLabel.text = IDP_SIMPLESHARE_LOCALIZED_SHARE_ON_FACEBOOK_TITLE;
+    [_shareButton setTitle:IDP_SIMPLESHARE_LOCALIZED_EXECUTE_SHARE_TITLE forState:UIControlStateNormal];
     
     _backgroundView.alpha = .7f;
     _backgroundView.opaque = NO;

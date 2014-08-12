@@ -491,6 +491,7 @@
                         <outlet property="_messageView" destination="w9e-2i-w8I" id="WNf-vL-qKF"/>
                         <outlet property="_shareButton" destination="5rM-3I-uLL" id="F07-0i-hRU"/>
                         <outlet property="_thumbnailView" destination="Fej-9V-X6d" id="c1I-wF-yID"/>
+                        <outlet property="_titleLabel" destination="Sly-cy-L9N" id="B6l-wI-r2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohp-SZ-PYH" userLabel="First Responder" sceneMemberID="firstResponder"/>

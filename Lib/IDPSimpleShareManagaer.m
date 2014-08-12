@@ -53,21 +53,21 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
 {
     if( _captionsByIconType == nil ){
         _captionsByIconType = @{
-                                 @(IDPShareBackgroundViewIconTypeInstagram):IDP_INTRODUCTION_LOCALIZED_INSTAGRAM_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeTwitter):IDP_INTRODUCTION_LOCALIZED_TWITTER_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeFacebook):IDP_INTRODUCTION_LOCALIZED_FACEBOOK_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeLINE):IDP_INTRODUCTION_LOCALIZED_LINE_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeMessage):IDP_INTRODUCTION_LOCALIZED_MESSAGE_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeMail):IDP_INTRODUCTION_LOCALIZED_MAIL_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypePasteboard):IDP_INTRODUCTION_LOCALIZED_COPY_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeOther):IDP_INTRODUCTION_LOCALIZED_OTHER_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeDocumentInteraction):IDP_INTRODUCTION_LOCALIZED_OPEN_IN_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeResolution):IDP_INTRODUCTION_LOCALIZED_SELECT_RESOLUTION_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeSmall):IDP_INTRODUCTION_LOCALIZED_SMALL_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeNormal):IDP_INTRODUCTION_LOCALIZED_NORMAL_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeLarge):IDP_INTRODUCTION_LOCALIZED_LARGE_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeCameraRoll):IDP_INTRODUCTION_LOCALIZED_POST_AFTER_TITLE
-                                 ,@(IDPShareBackgroundViewIconTypeBack):IDP_INTRODUCTION_LOCALIZED_BACK_TITLE
+                                 @(IDPShareBackgroundViewIconTypeInstagram):IDP_SIMPLESHARE_LOCALIZED_INSTAGRAM_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeTwitter):IDP_SIMPLESHARE_LOCALIZED_TWITTER_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeFacebook):IDP_SIMPLESHARE_LOCALIZED_FACEBOOK_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeLINE):IDP_SIMPLESHARE_LOCALIZED_LINE_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeMessage):IDP_SIMPLESHARE_LOCALIZED_MESSAGE_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeMail):IDP_SIMPLESHARE_LOCALIZED_MAIL_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypePasteboard):IDP_SIMPLESHARE_LOCALIZED_COPY_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeOther):IDP_SIMPLESHARE_LOCALIZED_OTHER_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeDocumentInteraction):IDP_SIMPLESHARE_LOCALIZED_OPEN_IN_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeResolution):IDP_SIMPLESHARE_LOCALIZED_SELECT_RESOLUTION_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeSmall):IDP_SIMPLESHARE_LOCALIZED_SMALL_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeNormal):IDP_SIMPLESHARE_LOCALIZED_NORMAL_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeLarge):IDP_SIMPLESHARE_LOCALIZED_LARGE_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeCameraRoll):IDP_SIMPLESHARE_LOCALIZED_POST_AFTER_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeBack):IDP_SIMPLESHARE_LOCALIZED_BACK_TITLE
                                  };
     }
     
