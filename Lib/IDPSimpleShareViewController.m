@@ -53,6 +53,7 @@
     
     self.navigationController.delegate = [IDPSimpleShareTransitionManager sharedManager];
     
+    self.navigationItem.title = IDP_INTRODUCTION_LOCALIZED_SHARE_TITLE;
 }
 
 - (NSArray *) initializedButtonWithIconTypes

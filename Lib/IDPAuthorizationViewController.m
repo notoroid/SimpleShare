@@ -626,7 +626,7 @@ static NSDate *s_pushNotificationTimeBeforeReminding = nil;
             break;
         case IDPAuthorizationViewControllerAuthorizationTypeAssetsLibrary:
         {
-            __block acceptAssetsLibrary = NO;
+            __block BOOL acceptAssetsLibrary = NO;
             
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
             [library enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {

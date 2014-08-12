@@ -53,21 +53,21 @@ static IDPSimpleShareManagaer *s_simpleShareManagaer;
 {
     if( _captionsByIconType == nil ){
         _captionsByIconType = @{
-                                 @(IDPShareBackgroundViewIconTypeInstagram):@"Instagram"
-                                 ,@(IDPShareBackgroundViewIconTypeTwitter):@"Twitter"
-                                 ,@(IDPShareBackgroundViewIconTypeFacebook):@"Facebook"
-                                 ,@(IDPShareBackgroundViewIconTypeLINE):@"LINE"
-                                 ,@(IDPShareBackgroundViewIconTypeMessage):@"メッセージ"
-                                 ,@(IDPShareBackgroundViewIconTypeMail):@"メール"
-                                 ,@(IDPShareBackgroundViewIconTypePasteboard):@"コピー"
-                                 ,@(IDPShareBackgroundViewIconTypeOther):@"その他"
-                                 ,@(IDPShareBackgroundViewIconTypeDocumentInteraction):@"アプリで開く"
-                                 ,@(IDPShareBackgroundViewIconTypeResolution):@"解像度を指定"
-                                 ,@(IDPShareBackgroundViewIconTypeSmall):@"コンパクト"
-                                 ,@(IDPShareBackgroundViewIconTypeNormal):@"高精細度"
-                                 ,@(IDPShareBackgroundViewIconTypeLarge):@"大きい"
-                                 ,@(IDPShareBackgroundViewIconTypeCameraRoll):@"あとで投稿"
-                                 ,@(IDPShareBackgroundViewIconTypeBack):@"戻る"
+                                 @(IDPShareBackgroundViewIconTypeInstagram):IDP_INTRODUCTION_LOCALIZED_INSTAGRAM_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeTwitter):IDP_INTRODUCTION_LOCALIZED_TWITTER_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeFacebook):IDP_INTRODUCTION_LOCALIZED_FACEBOOK_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeLINE):IDP_INTRODUCTION_LOCALIZED_LINE_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeMessage):IDP_INTRODUCTION_LOCALIZED_MESSAGE_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeMail):IDP_INTRODUCTION_LOCALIZED_MAIL_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypePasteboard):IDP_INTRODUCTION_LOCALIZED_COPY_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeOther):IDP_INTRODUCTION_LOCALIZED_OTHER_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeDocumentInteraction):IDP_INTRODUCTION_LOCALIZED_OPEN_IN_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeResolution):IDP_INTRODUCTION_LOCALIZED_SELECT_RESOLUTION_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeSmall):IDP_INTRODUCTION_LOCALIZED_SMALL_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeNormal):IDP_INTRODUCTION_LOCALIZED_NORMAL_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeLarge):IDP_INTRODUCTION_LOCALIZED_LARGE_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeCameraRoll):IDP_INTRODUCTION_LOCALIZED_POST_AFTER_TITLE
+                                 ,@(IDPShareBackgroundViewIconTypeBack):IDP_INTRODUCTION_LOCALIZED_BACK_TITLE
                                  };
     }
     

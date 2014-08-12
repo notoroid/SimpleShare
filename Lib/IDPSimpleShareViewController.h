@@ -18,6 +18,26 @@
 
 #define kIDPSimpleShareViewControllerIgnoreFacebookAppID @"YOUR_FACEBOOK_APP_ID"
 
+
+#define IDP_INTRODUCTION_LOCALIZED_SHARE_TITLE              NSLocalizedStringFromTable(@"共有", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_OTHER_TITLE              NSLocalizedStringFromTable(@"その他", @"SimpleShareLocalizable", nil)
+
+#define IDP_INTRODUCTION_LOCALIZED_INSTAGRAM_TITLE            NSLocalizedStringFromTable(@"Instagram", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_TWITTER_TITLE            NSLocalizedStringFromTable(@"Twitter", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_FACEBOOK_TITLE            NSLocalizedStringFromTable(@"Facebook", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_LINE_TITLE            NSLocalizedStringFromTable(@"LINE", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_MESSAGE_TITLE            NSLocalizedStringFromTable(@"メッセージ", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_MAIL_TITLE               NSLocalizedStringFromTable(@"メール", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_COPY_TITLE               NSLocalizedStringFromTable(@"コピー", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_OPEN_IN_TITLE            NSLocalizedStringFromTable(@"アプリで開く", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_SELECT_RESOLUTION_TITLE  NSLocalizedStringFromTable(@"解像度を指定", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_SMALL_TITLE              NSLocalizedStringFromTable(@"コンパクト", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_NORMAL_TITLE             NSLocalizedStringFromTable(@"高精細度", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_LARGE_TITLE              NSLocalizedStringFromTable(@"大きい", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_POST_AFTER_TITLE         NSLocalizedStringFromTable(@"あとで投稿", @"SimpleShareLocalizable", nil)
+#define IDP_INTRODUCTION_LOCALIZED_BACK_TITLE               NSLocalizedStringFromTable(@"戻る", @"SimpleShareLocalizable", nil)
+
+
 @interface IDPSimpleShareViewController : IDPAbstShareViewController
 + (instancetype) simpleShareViewController;
 @property (weak,nonatomic) id<IDPSimpleShareViewControllerDelegate> delegate;

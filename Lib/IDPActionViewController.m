@@ -34,7 +34,7 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"その他";
+    self.navigationItem.title = IDP_INTRODUCTION_LOCALIZED_OTHER_TITLE;
 }
 
 - (NSArray *) initializedButtonWithIconTypes
