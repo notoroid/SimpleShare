@@ -7,6 +7,16 @@ IDPSimpleShare Provides a simple UI for photo-sharing  Be. As a shared location,
 
 Install with [cocoapods](http://cocoapods.org/)
 
+
+##CocoaPods
+Appends the following Podfile in your project folder.
+```
+pod 'PEPhotoCropEditor'
+```
+
+and call the command from the terminal.
+
+
 ```
 cocoapod install
 ```
