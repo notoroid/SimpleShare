@@ -187,26 +187,26 @@
                             // ビューコントローラの初期化
                             SLComposeViewController *viewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
 
-                            NSMutableArray *tweetComponents = [[NSMutableArray alloc] init];
+                            NSMutableArray *socialNetworkComponents = [[NSMutableArray alloc] init];
 
                             NSDictionary *metadata = [_delegate simpleShareViewControllerMessageMetadata:self];
                             // metadataを取得
                             NSString* tweet = [metadata[kIDPSimpleShareViewControllerMetadataTweet] description];
                             if( tweet != nil ){
-                                [tweetComponents addObject:tweet];
+                                [socialNetworkComponents addObject:tweet];
                             }
                             
                             NSArray *hashTags = [_delegate simpleShareViewControllerHashTags:self];
                             NSString *hashTagsString = [hashTags componentsJoinedByString:@" "];
                             
                             if( hashTagsString != nil ){
-                                [tweetComponents addObject:hashTagsString];
+                                [socialNetworkComponents addObject:hashTagsString];
                             }
                             
-                            NSString* tweetString = [tweetComponents componentsJoinedByString:@" "];
+                            NSString* socialNetworkString = [socialNetworkComponents componentsJoinedByString:@" "];
                             
                             // 送信文字列を設定
-                            [viewController setInitialText:tweetString];
+                            [viewController setInitialText:socialNetworkString];
                             [viewController addImage:image];
                             // イメージを追加
                             
