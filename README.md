@@ -11,7 +11,7 @@ Install with [cocoapods](http://cocoapods.org/)
 ##CocoaPods
 Appends the following Podfile in your project folder.
 ```
-pod 'PEPhotoCropEditor'
+pod 'SimpleShare', :git => 'https://github.com/notoroid/SimpleShare.git'
 ```
 
 and call the command from the terminal.
