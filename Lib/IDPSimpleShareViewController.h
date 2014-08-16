@@ -15,6 +15,7 @@
 #define kIDPSimpleShareViewControllerMetadataSubject @"subject"
 #define kIDPSimpleShareViewControllerMetadataBody @"body"
 #define kIDPSimpleShareViewControllerMetadataMessage @"message"
+#define kIDPSimpleShareViewControllerMetadataTweet @"tweet"
 
 #define kIDPSimpleShareViewControllerIgnoreFacebookAppID @"YOUR_FACEBOOK_APP_ID"
 
