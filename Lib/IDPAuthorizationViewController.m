@@ -36,7 +36,7 @@ static NSDate *s_pushNotificationTimeBeforeReminding = nil;
         CGRect drawRect = (CGRect){CGPointZero,[viewController view].frame.size};
         UIGraphicsBeginImageContextWithOptions(drawRect.size, NO, [UIScreen mainScreen].scale);
         
-        [[viewController view] drawViewHierarchyInRect:drawRect afterScreenUpdates:YES];
+        [[viewController view] drawViewHierarchyInRect:drawRect afterScreenUpdates:NO];
         
         
         UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
